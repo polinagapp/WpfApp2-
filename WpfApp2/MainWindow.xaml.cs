@@ -35,5 +35,20 @@ namespace WpfApp2
             MainWindow.Show();
             this.Close();
         }
+        private void OpenSecondWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // 1. Создаем второе окно и передаем туда имя пользователя
+            Window2 Window2 = new Window2(UserNameTextBox.Text);
+
+            // 2. Открываем второе окно как модальное (оно заблокирует главное окно)
+            Window2.ShowDialog();
+
+            // 3. Этот код выполнится только когда второе окно закроется
+            if (Window2.ReturnedData != null)
+            {
+                // 4. Получаем данные из второго окна
+                ResultTextBlock.Text = Window2.ReturnedData;
+            }
+        }
     }
 }
