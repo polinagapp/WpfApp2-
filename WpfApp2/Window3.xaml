@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp2.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="ResultBox" FontSize="16" IsReadOnly="True" Margin="521,57,55,305" TextChanged="ResultBox_TextChanged"/>
+        <TextBox x:Name="SecondNumberBox" FontSize="16" Margin="306,54,379,303" TextChanged="SecondNumberBox_TextChanged"/>
+        <TextBox x:Name="FirstNumberBox" FontSize="16" Margin="138,55,529,305" TextChanged="FirstNumberBox_TextChanged"/>
+        <TextBlock Text="Window3,калькулятор" FontSize="20" Margin="29,0,552,384"/>
+        <Button Content="назад в Main" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Height="58" Width="102" Click="Button_Click"/>
+        <Button Content="+" HorizontalAlignment="Left" Margin="29,179,0,0" VerticalAlignment="Top" Height="123" Width="131" Click="Button_Click_3"/>
+        <Button Content="-" HorizontalAlignment="Left" Margin="241,179,0,0" VerticalAlignment="Top" Height="123" Width="130" Click="Button_Click_4"/>
+        <Button Content="*" HorizontalAlignment="Left" Margin="446,179,0,0" VerticalAlignment="Top" Height="123" Width="132" Click="Button_Click_5"/>
+        <Button Content="/" HorizontalAlignment="Left" Margin="636,174,0,0" VerticalAlignment="Top" Height="123" Width="132" Click="Button_Click_6"/>
+        <Button Content="=" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" Height="64" Width="224" Click="Button_Click_2"/>
+        <Button Content="1" HorizontalAlignment="Left" Margin="94,328,0,0" VerticalAlignment="Top" Height="64" Width="88" Click="Button_Click_1"/>
+        <TextBlock Text="=" FontSize="20" Margin="444,85,296,299"/>
+
+    </Grid>
+</Window>

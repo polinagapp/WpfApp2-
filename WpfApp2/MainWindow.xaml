@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="GoToWindow3Btn" Content="Перейти в Window3" 
+                Click="GoToWindow3_Click" FontSize="14" Padding="10,5" Margin="582,77,0,293"/>
+
         <Button Content="Button" HorizontalAlignment="Left" Margin="247,170,0,0" VerticalAlignment="Top" Height="115" Width="239"/>
         <TextBox x:Name="UserNameTextBox" Margin="22,65,520,311" Text="Пользователь"/>
 
@@ -19,7 +21,7 @@
                 Click="OpenSecondWindowBtn_Click" Margin="240,128,306,91" Padding="10,5"/>
 
         <TextBlock x:Name="ResultTextBlock" Text="Здесь будет результат..." 
-                   Margin="574,154,34,194" Background="LightBlue" Padding="10"/>
+                   Margin="523,257,85,91" Background="LightBlue" Padding="10"/>
 
     </Grid>
 </Window>

@@ -24,6 +24,12 @@ namespace WpfApp2
         {
             InitializeComponent();
         }
+        private void GoToWindow3_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 thirdWindow = new Window3();
+            thirdWindow.Show();
+            this.Close();
+        }
         private void Button1_Click(Object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Hello world");
