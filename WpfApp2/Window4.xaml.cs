@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApp2
 {
@@ -347,7 +348,7 @@ namespace WpfApp2
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            //элементы теста
+            // Показываем элементы теста
             ProgressBar.Visibility = Visibility.Visible;
             NextButton.Visibility = Visibility.Visible;
             SubmitButton.Visibility = Visibility.Collapsed; // Пока скрываем
@@ -383,26 +384,40 @@ namespace WpfApp2
 
         private void ShowResults()
         {
-            //результат от 0 до 10
             double scaledScore = (double)score / questions.Count * 10;
 
-            string resultMessage = $"Тест завершен!\n\n" +
-                                 $"Ваш результат: {scaledScore:0.0}/10\n" +
-                                 $"Правильных ответов: {score} из {questions.Count}\n\n";
+            string resultMessage = $"Тест наконец завершен!\n\n" +
+                                 $"Результат: {scaledScore:0.0}/10\n" +
+                                 $"Правильных ответов: {score} из {questions.Count}\n";
 
-            if (scaledScore >= 9.0)
-                resultMessage += "Отлично! Идеальный результат!";
-            else if (scaledScore >= 7.0)
-                resultMessage += "Хорошо! Вы знаете материал.";
-            else if (scaledScore >= 5.0)
-                resultMessage += "Удовлетворительно. Есть над чем поработать.";
-            else
-                resultMessage += "Плохо. Рекомендуется повторить материал.";
+            MessageBox.Show(resultMessage, "Сами результаты теста");
 
-            MessageBox.Show(resultMessage, "Результаты теста", MessageBoxButton.OK, MessageBoxImage.Information);
+            // Сохраняем в файл
+            SaveResultsToFile(scaledScore);
 
-            // Сбрасываем тест
             ResetTest();
+        }
+
+        private void SaveResultsToFile(double scaledScore)
+        {
+            try
+            {
+                string fileName = $"Тест_{DateTime.Now:yyyy-MM-dd_HH-mm}.txt";
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string filePath = System.IO.Path.Combine(desktopPath, fileName);
+
+                string content = $"Дата: {DateTime.Now}\n" +
+                                $"Результат: {scaledScore:0.0}/10\n" +
+                                $"Правильных ответов: {score} из {questions.Count}\n";
+
+                File.WriteAllText(filePath, content);
+
+                MessageBox.Show($"Сохранено в файл:\n{filePath}", "Успешно!!!11)");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
         }
 
         private void ResetTest()
@@ -471,6 +486,7 @@ namespace WpfApp2
             CorrectMultipleAnswers = correctAnswers;
             Type = type;
         }
+
         public void Reset()
         {
             UserSingleAnswer = -1;
