@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Window4" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <!-- Строка 1: прогресс -->
+            <!-- прогресс -->
             <RowDefinition Height="*"/>
-            <!-- Строка 2: вопросы -->
+            <!-- вопросы -->
             <RowDefinition Height="Auto"/>
-            <!-- Строка 3: кнопки -->
+            <!-- кнопки -->
         </Grid.RowDefinitions>
 
         <!-- Заголовок теста -->
@@ -93,5 +93,6 @@
                     x:Name="SubmitButton"
                     Click="SubmitButton_Click"/>
         </StackPanel>
+        <Button Content="назад в Main" HorizontalAlignment="Left" Margin="400,0,0,0" VerticalAlignment="Center" Height="39" Width="117" Click="Button_Click_1"/>
     </Grid>
 </Window>

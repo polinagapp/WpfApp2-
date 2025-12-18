@@ -347,7 +347,7 @@ namespace WpfApp2
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // элементы теста
+            //элементы теста
             ProgressBar.Visibility = Visibility.Visible;
             NextButton.Visibility = Visibility.Visible;
             SubmitButton.Visibility = Visibility.Collapsed; // Пока скрываем
@@ -383,7 +383,7 @@ namespace WpfApp2
 
         private void ShowResults()
         {
-            // результат от 0 до 10
+            //результат от 0 до 10
             double scaledScore = (double)score / questions.Count * 10;
 
             string resultMessage = $"Тест завершен!\n\n" +
@@ -429,7 +429,14 @@ namespace WpfApp2
 
         private void ProgressBar_ValueChanged(object sender, RoutedEventArgs e)
         {
-        
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 
@@ -464,7 +471,6 @@ namespace WpfApp2
             CorrectMultipleAnswers = correctAnswers;
             Type = type;
         }
-
         public void Reset()
         {
             UserSingleAnswer = -1;
