@@ -345,10 +345,9 @@ namespace WpfApp2
             }
         }
 
-        // Обработчики событий для кнопок в XAML
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // Показываем элементы теста
+            // элементы теста
             ProgressBar.Visibility = Visibility.Visible;
             NextButton.Visibility = Visibility.Visible;
             SubmitButton.Visibility = Visibility.Collapsed; // Пока скрываем
@@ -384,7 +383,7 @@ namespace WpfApp2
 
         private void ShowResults()
         {
-            // Масштабируем результат от 0 до 10
+            // результат от 0 до 10
             double scaledScore = (double)score / questions.Count * 10;
 
             string resultMessage = $"Тест завершен!\n\n" +
@@ -430,8 +429,7 @@ namespace WpfApp2
 
         private void ProgressBar_ValueChanged(object sender, RoutedEventArgs e)
         {
-            // Обработчик изменения значения прогресс-бара
-            // Можно оставить пустым или добавить логику при необходимости
+        
         }
     }
 
